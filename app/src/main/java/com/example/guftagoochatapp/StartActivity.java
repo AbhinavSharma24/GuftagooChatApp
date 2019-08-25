@@ -8,18 +8,43 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.squareup.picasso.Picasso;
 
 public class StartActivity extends AppCompatActivity {
+
+    Button login,register;
+    ImageView logo;
+
+    FirebaseUser firebaseUser;
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+
+        if(firebaseUser != null){
+            startActivity(new Intent(StartActivity.this,MainActivity.class));
+            finish();
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
 
-        Button login = findViewById(R.id.login);
-        Button register = findViewById(R.id.register);
-        ImageView logo = findViewById(R.id.logo);
+        login = findViewById(R.id.login);
+        register = findViewById(R.id.register);
+        logo = findViewById(R.id.logo);
+
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        if(firebaseUser != null){
+            startActivity(new Intent(StartActivity.this,MainActivity.class));
+            finish();
+        }
 
         Picasso.get().load("https://cdn.freebiesupply.com/logos/large/2x/rocket-chat-logo-png-transparent.png").fit().centerCrop().into(logo);
 
