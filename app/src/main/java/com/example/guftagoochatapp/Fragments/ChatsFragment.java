@@ -30,18 +30,18 @@ import java.util.List;
 
 public class ChatsFragment extends Fragment {
 
-    private RecyclerView recyclerView;
+    /*private RecyclerView recyclerView;
 
-    private List<User> mUser;
+    private List<User> mUsers;
     private UserAdapter userAdapter;
 
-    FirebaseUser fuser;
-    DatabaseReference reference;
+    private FirebaseUser fuser;
+    private DatabaseReference reference;
 
-    List<String> usersList;
+    private List<String> usersList;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_chats, container, false);
 
@@ -60,6 +60,7 @@ public class ChatsFragment extends Fragment {
                 for(DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     Chat chat = snapshot.getValue(Chat.class);
 
+                    assert chat != null;
                     if (chat.getSender().equals(fuser.getUid())) {
                         usersList.add(chat.getReceiver());
                     }
@@ -81,34 +82,35 @@ public class ChatsFragment extends Fragment {
     }
 
     private  void readChats(){
-        mUser = new ArrayList<>();
+        mUsers = new ArrayList<>();
 
         reference = FirebaseDatabase.getInstance().getReference("Users");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                mUser.clear();
+                mUsers.clear();
 
                 //display 1 user from chats
                 for (DataSnapshot snapshot: dataSnapshot.getChildren()){
                     User user = snapshot.getValue(User.class);
 
                     for (String id : usersList){
+                        assert user != null;
                         if(user.getId().equals(id)){
-                            if(mUser.size() != 0) {
-                                for (User user1 : mUser) {
+                            if(mUsers.size() != 0) {
+                                for (User user1 : mUsers) {
                                     if(!user.getId().equals(user1.getId())) {
-                                        mUser.add(user);
+                                        mUsers.add(user);
                                     }
                                 }
                             } else{
-                                mUser.add(user);
+                                mUsers.add(user);
                             }
                         }
                     }
                 }
 
-                userAdapter = new UserAdapter(getContext(), mUser);
+                userAdapter = new UserAdapter(getContext(), mUsers);
                 recyclerView.setAdapter(userAdapter);
             }
 
@@ -117,5 +119,8 @@ public class ChatsFragment extends Fragment {
 
             }
         });
-    }
+    }*/
+
+
+    //check video 16
 }
