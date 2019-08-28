@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="300dp"
     android:padding="5dp"
-    android:layout_marginLeft="5dp"
+    android:layout_marginLeft="2dp"
     android:layout_height="wrap_content">
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -20,7 +20,7 @@
         android:text="Hello"
         android:textColor="#111"
         android:id="@+id/show_message"
-        android:textSize="22sp"
+        android:textSize="19sp"
         android:padding="8dp"
         android:background="@drawable/background_left"/>
 

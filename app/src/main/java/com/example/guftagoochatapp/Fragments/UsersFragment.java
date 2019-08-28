@@ -37,7 +37,7 @@ public class UsersFragment extends Fragment {
     private List<User> mUser;
     private UserAdapter userAdapter;
 
-    EditText search_users;
+    private EditText search_users;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

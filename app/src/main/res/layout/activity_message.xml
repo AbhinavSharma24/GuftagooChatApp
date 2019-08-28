@@ -47,8 +47,8 @@
         android:layout_height="match_parent"/>
 
     <RelativeLayout
-        android:padding="8dp"
-        android:layout_margin="8dp"
+        android:padding="5dp"
+        android:layout_margin="4dp"
         android:background="#fff"
         android:id="@+id/bottom"
         android:layout_alignParentBottom="true"
