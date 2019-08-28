@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:padding="5dp"
+    android:layout_marginRight="8dp"
     android:layout_height="wrap_content">
 
     <RelativeLayout
@@ -23,7 +24,7 @@
             android:padding="8dp"
             android:layout_alignParentEnd="true"
             android:id="@+id/show_message"
-            android:textSize="18sp"
+            android:textSize="22sp"
             android:textColor="#fff"
             android:text="Hello"/>
         

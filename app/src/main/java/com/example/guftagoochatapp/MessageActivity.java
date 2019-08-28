@@ -30,6 +30,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 
 public class MessageActivity extends AppCompatActivity {
 
@@ -56,7 +57,7 @@ public class MessageActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("");
+        Objects.requireNonNull(getSupportActionBar()).setTitle("");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,7 +88,7 @@ public class MessageActivity extends AppCompatActivity {
                 if(!mssg.equals("")){
                     sendMessage(fuser.getUid(), userid, mssg);
                 } else{
-                    Toast.makeText(MessageActivity.this,"Can't send empty message.",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MessageActivity.this,"Can't send empty message !!!",Toast.LENGTH_SHORT).show();
                 }
                 text_send.setText("");
             }

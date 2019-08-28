@@ -22,7 +22,7 @@
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_width="40dp"
-                android:layout_height="36dp"
+                android:layout_height="38dp"
                 android:id="@+id/profile_image"/>
 
             <TextView
@@ -47,7 +47,8 @@
         android:layout_height="match_parent"/>
 
     <RelativeLayout
-        android:padding="5dp"
+        android:padding="8dp"
+        android:layout_margin="8dp"
         android:background="#fff"
         android:id="@+id/bottom"
         android:layout_alignParentBottom="true"
