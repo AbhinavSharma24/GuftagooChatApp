@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -32,6 +33,8 @@ public class RegisterActivity extends AppCompatActivity {
     FirebaseAuth auth;
     DatabaseReference reference;
 
+    TextView dummy;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +51,10 @@ public class RegisterActivity extends AppCompatActivity {
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
         btn_register = findViewById(R.id.btn_register);
+        dummy = findViewById(R.id.dummy);
+
+        dummy.requestFocus();
+        dummy.setFocusableInTouchMode(true);
 
         auth = FirebaseAuth.getInstance();
 
