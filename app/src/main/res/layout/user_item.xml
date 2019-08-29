@@ -17,6 +17,7 @@
         android:layout_marginLeft="15dp"
         android:layout_centerVertical="true"
         android:layout_toEndOf="@id/profile_image"
+        android:textColor="#000"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Username"/>
@@ -48,5 +49,17 @@
         android:layout_marginLeft="-15dp"
         android:layout_toRightOf="@id/profile_image"
         android:layout_toEndOf="@id/profile_image"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/username"
+        android:layout_toRightOf="@id/profile_image"
+        android:layout_marginTop="9dp"
+        android:paddingTop="5dp"
+        android:textColor="#4B4B4B"
+        android:id="@+id/last_msg"
+        android:maxLines="1"
+        android:layout_marginLeft="15dp"/>
 
 </RelativeLayout>
