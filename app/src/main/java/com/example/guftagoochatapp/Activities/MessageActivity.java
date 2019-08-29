@@ -1,4 +1,4 @@
-package com.example.guftagoochatapp;
+package com.example.guftagoochatapp.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,7 +21,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.data.DataRewinder;
 import com.example.guftagoochatapp.Adapter.MessageAdapter;
 import com.example.guftagoochatapp.Fragments.APIService;
 import com.example.guftagoochatapp.Model.Chat;
@@ -31,6 +30,7 @@ import com.example.guftagoochatapp.Notifications.Data;
 import com.example.guftagoochatapp.Notifications.MyResponse;
 import com.example.guftagoochatapp.Notifications.Sender;
 import com.example.guftagoochatapp.Notifications.Token;
+import com.example.guftagoochatapp.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -57,14 +57,10 @@ public class MessageActivity extends AppCompatActivity {
     EditText text_send;
 
     Intent intent;
-
-    MessageAdapter messageAdapter;
     List<Chat> mchat;
 
     RecyclerView recyclerView;
-
     ValueEventListener seenListener;
-
     APIService apiService;
     boolean notify = false;
 
@@ -265,6 +261,7 @@ public class MessageActivity extends AppCompatActivity {
                 mchat.clear();
                 for(DataSnapshot snapshot : dataSnapshot.getChildren()){
                     Chat chat = snapshot.getValue(Chat.class);
+                    assert chat != null;
                     if(chat.getReceiver().equals(myid) && chat.getSender().equals(userid)
                         || chat.getReceiver().equals(userid) && chat.getSender().equals(myid)){
                         mchat.add(chat);

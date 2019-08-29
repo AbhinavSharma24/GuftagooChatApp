@@ -1,7 +1,5 @@
 package com.example.guftagoochatapp.Fragments;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -40,7 +38,7 @@ public class UsersFragment extends Fragment {
     private EditText search_users;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_users, container, false);
@@ -135,6 +133,4 @@ public class UsersFragment extends Fragment {
             }
         });
     }
-
-
 }

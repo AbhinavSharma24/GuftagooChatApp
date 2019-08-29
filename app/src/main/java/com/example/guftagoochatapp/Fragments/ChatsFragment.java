@@ -1,7 +1,6 @@
 package com.example.guftagoochatapp.Fragments;
 
-import android.content.Context;
-import android.net.Uri;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,7 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.guftagoochatapp.Adapter.UserAdapter;
-import com.example.guftagoochatapp.Model.Chat;
 import com.example.guftagoochatapp.Model.Chatlist;
 import com.example.guftagoochatapp.Model.User;
 import com.example.guftagoochatapp.Notifications.Token;
@@ -55,7 +53,9 @@ public class ChatsFragment extends Fragment {
         fuser = FirebaseAuth.getInstance().getCurrentUser();
         usersList = new ArrayList<>();
 
-        reference = FirebaseDatabase.getInstance().getReference("Chatlist").child(fuser.getUid());
+
+        reference = FirebaseDatabase.getInstance().getReference("Chatlist")
+                .child(fuser.getUid());
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -64,7 +64,6 @@ public class ChatsFragment extends Fragment {
                     Chatlist chatlist = snapshot.getValue(Chatlist.class);
                     usersList.add(chatlist);
                 }
-
                 chatList();
             }
 
@@ -75,7 +74,6 @@ public class ChatsFragment extends Fragment {
         });
 
         updateToken(FirebaseInstanceId.getInstance().getToken());
-
         return view;
     }
 
@@ -96,7 +94,7 @@ public class ChatsFragment extends Fragment {
                     User user = snapshot.getValue(User.class);
                     for(Chatlist chatlist : usersList){
                         assert user != null;
-                        if(user.getId().equals(chatlist.getId())){
+                        if(user.getId().equals(chatlist.getId())/* || user.getId().equals(chatlist.getOtherid())*/){
                             mUsers.add(user);
                         }
                     }

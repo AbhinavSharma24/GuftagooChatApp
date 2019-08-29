@@ -1,16 +1,13 @@
 package com.example.guftagoochatapp.Adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.guftagoochatapp.MessageActivity;
 import com.example.guftagoochatapp.Model.Chat;
-import com.example.guftagoochatapp.Model.User;
 import com.example.guftagoochatapp.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;

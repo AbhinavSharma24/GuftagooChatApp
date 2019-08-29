@@ -9,8 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.guftagoochatapp.MainActivity;
-import com.example.guftagoochatapp.MessageActivity;
+import com.example.guftagoochatapp.Activities.MessageActivity;
 import com.example.guftagoochatapp.Model.Chat;
 import com.example.guftagoochatapp.Model.User;
 import com.example.guftagoochatapp.R;
@@ -34,7 +33,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
     private List<User> mUser;
     private boolean ischat;
 
-    String theLastMessage;
+    private String theLastMessage;
 
     public UserAdapter(Context mContext, List<User> mUser, boolean ischat){
         this.mContext = mContext;
@@ -60,7 +59,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
         }
 
         if(ischat){
-            lastMessage(user.getId(), holder.last_msg);
+            //lastMessage(user.getId(), holder.last_msg);
         } else{
             holder.last_msg.setVisibility(View.GONE);
         }
@@ -101,7 +100,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
         ImageView img_off;
         private TextView last_msg;
 
-        public ViewHolder(@NonNull View itemView) {
+        ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             username = itemView.findViewById(R.id.username);
@@ -112,9 +111,10 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
         }
     }
 
-    private void lastMessage(final String userid, final TextView last_msg){
+    /*private void lastMessage(final String userid, final TextView last_msg){
         theLastMessage = "default";
         final FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        assert firebaseUser != null;
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Chats");
 
         reference.addValueEventListener(new ValueEventListener() {
@@ -122,6 +122,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot snapshot : dataSnapshot.getChildren()){
                     Chat chat = snapshot.getValue(Chat.class);
+                    assert chat != null;
                     if(chat.getReceiver().equals(firebaseUser.getUid()) && chat.getSender().equals(userid)
                             || chat.getReceiver().equals(userid) && chat.getSender().equals(firebaseUser.getUid())){
                         theLastMessage = chat.getMessage();
@@ -132,12 +133,10 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
                     case "default" :
                         last_msg.setText("No message");
                         break;
-
                     default:
                         last_msg.setText(theLastMessage);
                         break;
                 }
-
                 theLastMessage = "default";
             }
 
@@ -146,5 +145,5 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
 
             }
         });
-    }
+    }*/
 }

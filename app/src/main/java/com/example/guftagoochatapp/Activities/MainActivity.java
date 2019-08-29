@@ -1,4 +1,4 @@
-package com.example.guftagoochatapp;
+package com.example.guftagoochatapp.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -22,6 +22,7 @@ import com.example.guftagoochatapp.Fragments.ProfileFragment;
 import com.example.guftagoochatapp.Fragments.UsersFragment;
 import com.example.guftagoochatapp.Model.Chat;
 import com.example.guftagoochatapp.Model.User;
+import com.example.guftagoochatapp.R;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -69,7 +70,6 @@ public class MainActivity extends AppCompatActivity {
                 }else {
                     Glide.with(getApplicationContext()).load(user.getImageURL()).into(profile_image);
                 }
-
             }
 
             @Override
@@ -81,8 +81,6 @@ public class MainActivity extends AppCompatActivity {
         final TabLayout tablayout = findViewById(R.id.tab_layout);
         final ViewPager viewpager = findViewById(R.id.view_pager);
 
-//        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
-
         reference = FirebaseDatabase.getInstance().getReference("Chats");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -91,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
                 int unread = 0;
                 for(DataSnapshot snapshot : dataSnapshot.getChildren()){
                     Chat chat = snapshot.getValue(Chat.class);
+                    assert chat != null;
                     if(chat.getReceiver().equals(firebaseUser.getUid()) && !chat.isIsseen()){
                         unread++;
                     }
@@ -125,10 +124,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
-            case R.id.logout:
+            case R.id.logout: {
                 FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(MainActivity.this,StartActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
-                return true;
+                startActivity(new Intent(MainActivity.this, StartActivity.class)
+                        .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+                //return true;
+            }
         }
         return false;
     }
@@ -154,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
             return fragments.size();
         }
 
-        public void addFragment(Fragment fragment, String title){
+        void addFragment(Fragment fragment, String title){
             fragments.add(fragment);
             titles.add(title);
         }
