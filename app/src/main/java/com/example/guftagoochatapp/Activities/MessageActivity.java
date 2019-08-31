@@ -265,7 +265,7 @@ public class MessageActivity extends AppCompatActivity {
                     Chat chat = snapshot.getValue(Chat.class);
                     assert chat != null;
                     if(chat.getReceiver().equals(myid) && chat.getSender().equals(userid)
-                        || chat.getReceiver().equals(userid) && chat.getSender().equals(myid)){
+                            || chat.getReceiver().equals(userid) && chat.getSender().equals(myid)){
                         mchat.add(chat);
                     }
 
