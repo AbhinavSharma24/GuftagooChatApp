@@ -46,8 +46,8 @@ public class PhoneRegister extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
 
-        String phoneNumber = getIntent().getStringExtra("phonenumber");
-        sendVerificationCode(phoneNumber);
+        String phonenumber = getIntent().getStringExtra("phonenumber");
+        sendVerificationCode(phonenumber);
 
         otpSent = findViewById(R.id.otpSent);
         username = findViewById(R.id.username);
@@ -60,20 +60,22 @@ public class PhoneRegister extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String otp = Objects.requireNonNull(otpSent.getEditText()).getText().toString();
-                if(otp.isEmpty() || otp.length()<6){
+                if(otp.isEmpty() || otp.length()<6 || Objects.requireNonNull(username.getEditText()).getText().toString().isEmpty()){
                     Toast.makeText(PhoneRegister.this, "Enter valid OTP to continue", Toast.LENGTH_SHORT).show();
                 }
-                verifyCode(otp);
+                //verifyCode(otp);
+                PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationCode, otp);
+                SignInWithCredential(credential);
             }
         });
     }
 
-    private void verifyCode(String code){
+    /*private void verifyCode(String code){
         PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationCode, code);
-        signInWithCredential(credential);
-    }
+        SignInWithCredential(credential);
+    }*/
 
-    private void signInWithCredential(PhoneAuthCredential credential) {
+    private void SignInWithCredential(PhoneAuthCredential credential) {
 
         auth.signInWithCredential(credential)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -133,7 +135,8 @@ public class PhoneRegister extends AppCompatActivity {
             if(code != null){
                 Toast.makeText(PhoneRegister.this, "Verification Completed", Toast.LENGTH_SHORT).show();
                 Objects.requireNonNull(otpSent.getEditText()).setText(code);
-                verifyCode(code);
+                //verifyCode(code);
+                SignInWithCredential(phoneAuthCredential);
             }
         }
 
