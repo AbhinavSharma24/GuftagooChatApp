@@ -4,13 +4,50 @@
     android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:layout_marginTop="130dp"
     android:layout_height="match_parent"
     tools:context=".Activities.PhoneRegister">
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textSize="18sp"
-        android:hint="Enter your phone number here..."/>
+    <!--<TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:id="@+id/dummy"/>
 
+    <TextView
+        android:text="Register using Phone Number"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:padding="10dp"
+        android:textSize="22dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        app:passwordToggleEnabled="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:id="@+id/phoneNumber"
+        android:layout_marginEnd="16dp"
+        android:hint="Phone Number"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_height="wrap_content">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:hint="Phone Number"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:text="Register"
+        android:textColor="#fff"
+        android:textSize="18dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorPrimaryDark"
+        android:id="@+id/phone_register"
+        android:layout_height="wrap_content"/>
+-->
 </LinearLayout>
