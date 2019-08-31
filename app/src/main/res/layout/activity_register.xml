@@ -18,7 +18,7 @@
         android:orientation="vertical"
         android:padding="16dp"
         android:gravity="center_horizontal"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="80dp"
         android:layout_below="@id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -94,6 +94,27 @@
             android:layout_marginTop="20dp"
             android:background="@color/colorPrimaryDark"
             android:id="@+id/btn_register"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OR"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:gravity="center"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:text="Register using phone Number"
+            android:textColor="#fff"
+            android:textSize="18dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorPrimaryDark"
+            android:id="@+id/phone_register"
             android:layout_height="wrap_content"/>
 
     </LinearLayout>

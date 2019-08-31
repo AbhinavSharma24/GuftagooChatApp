@@ -29,7 +29,7 @@ import java.util.Objects;
 public class RegisterActivity extends AppCompatActivity {
 
     TextInputLayout username,email,password;
-    Button btn_register;
+    Button btn_register,phone_register;
 
     FirebaseAuth auth;
     DatabaseReference reference;
@@ -52,6 +52,7 @@ public class RegisterActivity extends AppCompatActivity {
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
         btn_register = findViewById(R.id.btn_register);
+        phone_register = findViewById(R.id.phone_register);
         dummy = findViewById(R.id.dummy);
 
         dummy.requestFocus();
@@ -73,6 +74,13 @@ public class RegisterActivity extends AppCompatActivity {
                 } else{
                     register(text_username,text_email,text_password);
                 }
+            }
+        });
+
+        phone_register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(RegisterActivity.this, PhoneRegister.class));
             }
         });
     }

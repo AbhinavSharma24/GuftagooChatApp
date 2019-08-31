@@ -64,6 +64,8 @@ public class MessageActivity extends AppCompatActivity {
     APIService apiService;
     boolean notify = false;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
