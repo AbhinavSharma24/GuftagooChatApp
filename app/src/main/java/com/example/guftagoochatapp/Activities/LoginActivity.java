@@ -125,7 +125,7 @@ public class LoginActivity extends AppCompatActivity {
                                 Toast.makeText(LoginActivity.this, "Enter valid OTP to continue", Toast.LENGTH_SHORT).show();
                             }
                             //verifyCode(otp);
-                            PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationCode, otp);
+                            final PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationCode,otp);
                             SignInWithCredential(credential);
                         }
                     });
@@ -185,6 +185,7 @@ public class LoginActivity extends AppCompatActivity {
                 public void onCodeSent(String s, PhoneAuthProvider.ForceResendingToken forceResendingToken) {
                     super.onCodeSent(s, forceResendingToken);
                     verificationCode = s;
+                    Toast.makeText(LoginActivity.this, "OTP Sent", Toast.LENGTH_SHORT).show();
                 }
             };
 }

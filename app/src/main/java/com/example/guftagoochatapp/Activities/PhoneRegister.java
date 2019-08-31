@@ -6,6 +6,7 @@ import androidx.arch.core.executor.TaskExecutor;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -63,17 +64,20 @@ public class PhoneRegister extends AppCompatActivity {
                 if(otp.isEmpty() || otp.length()<6 || Objects.requireNonNull(username.getEditText()).getText().toString().isEmpty()){
                     Toast.makeText(PhoneRegister.this, "Enter valid OTP to continue", Toast.LENGTH_SHORT).show();
                 }
-                //verifyCode(otp);
-                PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationCode, otp);
-                SignInWithCredential(credential);
+                verifyCode(otp);
+                /*PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationCode, otp);
+                SignInWithCredential(credential);*/
             }
         });
     }
 
-    /*private void verifyCode(String code){
-        PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationCode, code);
-        SignInWithCredential(credential);
-    }*/
+    private void verifyCode(String code) {
+        try {
+            PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationCode, code);            SignInWithCredential(credential);
+        }catch (Exception e){
+            Toast.makeText(PhoneRegister.this, e.getMessage(), Toast.LENGTH_LONG).show();
+        }
+    }
 
     private void SignInWithCredential(PhoneAuthCredential credential) {
 
@@ -135,8 +139,8 @@ public class PhoneRegister extends AppCompatActivity {
             if(code != null){
                 Toast.makeText(PhoneRegister.this, "Verification Completed", Toast.LENGTH_SHORT).show();
                 Objects.requireNonNull(otpSent.getEditText()).setText(code);
-                //verifyCode(code);
-                SignInWithCredential(phoneAuthCredential);
+                verifyCode(code);
+                //SignInWithCredential(phoneAuthCredential);
             }
         }
 
