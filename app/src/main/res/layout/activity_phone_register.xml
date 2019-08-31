@@ -8,13 +8,13 @@
     android:layout_height="match_parent"
     tools:context=".Activities.PhoneRegister">
 
-    <!--<TextView
+    <TextView
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:id="@+id/dummy"/>
 
     <TextView
-        android:text="Register using Phone Number"
+        android:text="Enter OTP sent on your Phone Number             OR wait for Auto verification..."
         android:textStyle="bold"
         android:gravity="center"
         android:padding="10dp"
@@ -24,30 +24,45 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
+        android:hint="Username"
+        android:id="@+id/username"
+        android:layout_margin="16dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_height="wrap_content">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Username"
+            android:inputType="text"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
         app:passwordToggleEnabled="true"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        android:id="@+id/phoneNumber"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/otpSent"
         android:layout_marginEnd="16dp"
-        android:hint="Phone Number"
+        android:hint="Enter OTP"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_height="wrap_content">
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="phone"
-            android:hint="Phone Number"/>
+            android:maxLength="6"
+            android:hint="Enter OTP"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:layout_width="match_parent"
-        android:text="Register"
+        android:text="Sign In"
         android:textColor="#fff"
+        android:layout_margin="16dp"
         android:textSize="18dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="-6dp"
         android:background="@color/colorPrimaryDark"
-        android:id="@+id/phone_register"
+        android:id="@+id/btn_phone_register"
         android:layout_height="wrap_content"/>
--->
+
 </LinearLayout>

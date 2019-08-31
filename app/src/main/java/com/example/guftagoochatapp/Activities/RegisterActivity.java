@@ -34,6 +34,8 @@ public class RegisterActivity extends AppCompatActivity {
     FirebaseAuth auth;
     DatabaseReference reference;
 
+    TextInputLayout phoneNumber;
+
     TextView dummy;
 
     @Override
@@ -54,6 +56,7 @@ public class RegisterActivity extends AppCompatActivity {
         btn_register = findViewById(R.id.btn_register);
         phone_register = findViewById(R.id.phone_register);
         dummy = findViewById(R.id.dummy);
+        phoneNumber = findViewById(R.id.phoneNumber);
 
         dummy.requestFocus();
         dummy.setFocusableInTouchMode(true);
@@ -80,7 +83,16 @@ public class RegisterActivity extends AppCompatActivity {
         phone_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(RegisterActivity.this, PhoneRegister.class));
+                String phonenumber = Objects.requireNonNull(phoneNumber.getEditText()).getText().toString();
+
+                if(phonenumber.isEmpty() || phonenumber.length()<10){
+                    Toast.makeText(RegisterActivity.this, "Valid number is required with 10 digits.", Toast.LENGTH_SHORT).show();
+                } else{
+                    String number = "+91" + phonenumber;
+                    Intent intent = new Intent(RegisterActivity.this, PhoneRegister.class);
+                    intent.putExtra("phonenumber", number);
+                    startActivity(intent);
+                }
             }
         });
     }
