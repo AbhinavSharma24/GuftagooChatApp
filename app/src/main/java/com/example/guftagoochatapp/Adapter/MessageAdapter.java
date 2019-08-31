@@ -60,6 +60,8 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
             Glide.with(mContext).load(imageurl).into(holder.profile_image);
         }
 
+        holder.msg_time.setText(chat.getTime());
+
         if(position == mChat.size()-1){
             if(chat.isIsseen()){
                 holder.text_seen.setText("Seen");
@@ -81,6 +83,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
         public TextView show_message;
         public CircleImageView profile_image;
         public TextView text_seen;
+        public TextView msg_time;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -88,6 +91,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
             show_message = itemView.findViewById(R.id.show_message);
             profile_image = itemView.findViewById(R.id.profile_image);
             text_seen = itemView.findViewById(R.id.text_seen);
+            msg_time = itemView.findViewById(R.id.msg_time);
         }
     }
 

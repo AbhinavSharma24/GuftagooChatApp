@@ -40,7 +40,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
@@ -64,7 +66,7 @@ public class MessageActivity extends AppCompatActivity {
     APIService apiService;
     boolean notify = false;
 
-
+    String time;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,7 +107,11 @@ public class MessageActivity extends AppCompatActivity {
                 notify = true;
                 String mssg = text_send.getText().toString();
                 if(!mssg.equals("")){
-                    sendMessage(fuser.getUid(), userid, mssg);
+                    Calendar currentTime = Calendar.getInstance();
+                    @SuppressLint("SimpleDateFormat") SimpleDateFormat currentTimeFormat = new SimpleDateFormat("hh:mm");
+                    time = currentTimeFormat.format(currentTime.getTime());
+
+                    sendMessage(fuser.getUid(), userid, mssg, time);
                 } else{
                     Toast.makeText(MessageActivity.this,"Can't send empty message !!!",Toast.LENGTH_SHORT).show();
                 }
@@ -162,7 +168,7 @@ public class MessageActivity extends AppCompatActivity {
         });
     }
 
-    private void sendMessage(String sender, final String receiver, final String message){
+    private void sendMessage(String sender, final String receiver, final String message, final String time){
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
 
         HashMap<String, Object> hashMap = new HashMap<>();
@@ -170,6 +176,7 @@ public class MessageActivity extends AppCompatActivity {
         hashMap.put("receiver", receiver);
         hashMap.put("message", message);
         hashMap.put("isseen", false);
+        hashMap.put("time", time);
 
         reference.child("Chats").push().setValue(hashMap);
 
