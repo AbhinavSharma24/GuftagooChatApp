@@ -53,6 +53,19 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/unread_msg"
+        android:layout_centerVertical="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="15dp"
+        android:visibility="gone"
+        android:text="(-_-)"
+        android:textColor="#05df29"
+        android:textSize="15sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@id/username"
         android:layout_toRightOf="@id/profile_image"
         android:layout_marginTop="9dp"

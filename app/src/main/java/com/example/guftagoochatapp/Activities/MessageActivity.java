@@ -108,7 +108,7 @@ public class MessageActivity extends AppCompatActivity {
                 String mssg = text_send.getText().toString();
                 if(!mssg.equals("")){
                     Calendar currentTime = Calendar.getInstance();
-                    @SuppressLint("SimpleDateFormat") SimpleDateFormat currentTimeFormat = new SimpleDateFormat("hh:mm");
+                    @SuppressLint("SimpleDateFormat") SimpleDateFormat currentTimeFormat = new SimpleDateFormat("HH:mm");
                     time = currentTimeFormat.format(currentTime.getTime());
 
                     sendMessage(fuser.getUid(), userid, mssg, time);

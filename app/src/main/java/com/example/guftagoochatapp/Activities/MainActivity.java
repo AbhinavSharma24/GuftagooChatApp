@@ -14,6 +14,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -39,7 +40,7 @@ import java.util.Objects;
 public class MainActivity extends AppCompatActivity {
 
     CircleImageView profile_image;
-    TextView username;
+    TextView username, unread_msg;
 
     FirebaseUser firebaseUser;
     DatabaseReference reference;
@@ -55,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
         profile_image = findViewById(R.id.profile_image);
         username = findViewById(R.id.username);
+        unread_msg = findViewById(R.id.unread_msg);
 
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         reference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
@@ -92,11 +94,16 @@ public class MainActivity extends AppCompatActivity {
                     assert chat != null;
                     if(chat.getReceiver().equals(firebaseUser.getUid()) && !chat.isIsseen()){
                         unread++;
+                        /*Intent intent = getIntent();
+                        if(chat.getSender().equals(intent.getStringExtra("userid")) && !chat.isIsseen()){
+                            unread_msg.setVisibility(View.VISIBLE);
+                        }*/
                     }
                 }
 
                 if(unread == 0){
                     viewPagerAdapter.addFragment(new ChatsFragment(),"Chats");
+                    //unread_msg.setVisibility(View.GONE);
                 } else{
                     viewPagerAdapter.addFragment(new ChatsFragment(),"("+unread+") Chats");
                 }
