@@ -61,11 +61,13 @@ public class MyFirebaseMessaging extends FirebaseMessagingService {
         bundle.putString("userid", user);
         intent.putExtras(bundle);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, j, intent, PendingIntent.FLAG_ONE_SHOT);
+        PendingIntent pendingIntent = PendingIntent.getActivity
+                (this, j, intent, PendingIntent.FLAG_ONE_SHOT);
         Uri defaultSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
         OreoNotifications oreoNotifications = new OreoNotifications(this);
-        Notification.Builder builder = oreoNotifications.getOreoNotification(title,body,icon,pendingIntent,defaultSound);
+        Notification.Builder builder = oreoNotifications.getOreoNotification
+                (title,body,icon,pendingIntent,defaultSound);
 
         int i = 0;
         if(j > 0){

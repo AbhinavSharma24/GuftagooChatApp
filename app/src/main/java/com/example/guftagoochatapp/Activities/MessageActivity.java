@@ -1,6 +1,7 @@
 package com.example.guftagoochatapp.Activities;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -13,6 +14,7 @@ import retrofit2.Response;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -39,6 +41,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.StorageTask;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -55,7 +60,7 @@ public class MessageActivity extends AppCompatActivity {
     FirebaseUser fuser;
     DatabaseReference reference;
 
-    ImageButton btn_send;
+    ImageButton btn_send, send_image;
     EditText text_send;
 
     Intent intent;
@@ -66,7 +71,9 @@ public class MessageActivity extends AppCompatActivity {
     APIService apiService;
     boolean notify = false;
 
-    String time;
+    String time, myUrl = "";
+    private Uri fileUri;
+    StorageTask uploadTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,6 +103,7 @@ public class MessageActivity extends AppCompatActivity {
         username = findViewById(R.id.username);
         btn_send = findViewById(R.id.btn_send);
         text_send = findViewById(R.id.text_send);
+        send_image = findViewById(R.id.send_image);
 
         intent = getIntent();
         final String userid = intent.getStringExtra("userid");
@@ -116,6 +124,16 @@ public class MessageActivity extends AppCompatActivity {
                     Toast.makeText(MessageActivity.this,"Can't send empty message !!!",Toast.LENGTH_SHORT).show();
                 }
                 text_send.setText("");
+            }
+        });
+
+        send_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                intent.setType("image/*");
+                startActivityForResult(Intent.createChooser(intent, "Select Image"), 438);
             }
         });
 
@@ -144,6 +162,28 @@ public class MessageActivity extends AppCompatActivity {
 
         seenMessage(userid);
     }
+
+
+    /*@Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == 438 && resultCode == RESULT_OK && data != null && data.getData() != null){
+            fileUri = data.getData();
+            StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("Image Files");
+
+            final DatabaseReference chatRef = FirebaseDatabase.getInstance().getReference("Chats")
+                    .child(fuser.getUid())
+                    .child(getIntent().getStringExtra("userid"));
+
+            String pushID = chatRef.getKey();
+
+            StorageReference filePath = storageReference.child(pushID + "." + "jpg");
+
+            uploadTask = filePath.putFile()
+
+        }
+    }*/
 
     private void seenMessage(final String userid){
         reference = FirebaseDatabase.getInstance().getReference("Chats");

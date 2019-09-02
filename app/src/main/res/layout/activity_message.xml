@@ -54,10 +54,22 @@
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/send_image"
+            android:background="@drawable/ic_insert_photo_black_24dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
         
         <EditText
             android:layout_width="match_parent"
             android:id="@+id/text_send"
+            android:layout_marginLeft="8dp"
+            android:textColor="#111"
+            android:textColorHint="#1a1a1a"
+            android:layout_toEndOf="@id/send_image"
             android:background="@android:color/transparent"
             android:hint="Type a message..."
             android:layout_centerVertical="true"

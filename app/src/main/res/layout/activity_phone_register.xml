@@ -14,7 +14,7 @@
         android:id="@+id/dummy"/>
 
     <TextView
-        android:text="Enter OTP sent on your Phone Number             OR wait for Auto verification..."
+        android:text="Enter OTP sent on your Phone Number             OR wait for auto verification..."
         android:textStyle="bold"
         android:gravity="center"
         android:padding="10dp"
