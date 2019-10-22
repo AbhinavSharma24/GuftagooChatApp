@@ -68,7 +68,7 @@
             android:id="@+id/text_send"
             android:layout_marginLeft="8dp"
             android:textColor="#111"
-            android:textColorHint="#1a1a1a"
+            android:layout_marginRight="50dp"
             android:layout_toEndOf="@id/send_image"
             android:background="@android:color/transparent"
             android:hint="Type a message..."
