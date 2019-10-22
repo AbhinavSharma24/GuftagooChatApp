@@ -54,7 +54,6 @@ public class UsersFragment extends Fragment {
         search_users.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
             }
 
             @Override
@@ -67,6 +66,7 @@ public class UsersFragment extends Fragment {
 
             }
         });
+
         return view;
     }
 
