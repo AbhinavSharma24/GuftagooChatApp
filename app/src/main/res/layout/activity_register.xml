@@ -18,7 +18,7 @@
         android:orientation="vertical"
         android:padding="16dp"
         android:gravity="center_horizontal"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="100dp"
         android:layout_below="@id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -96,7 +96,7 @@
             android:id="@+id/btn_register"
             android:layout_height="wrap_content"/>
 
-        <TextView
+        <!--<TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="OR"
@@ -134,7 +134,7 @@
             android:layout_marginTop="10dp"
             android:background="@color/colorPrimaryDark"
             android:id="@+id/phone_register"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"/>-->
 
     </LinearLayout>
 
