@@ -1,3 +1,4 @@
+/*
 package com.example.guftagoochatapp.Activities;
 
 import androidx.annotation.NonNull;
@@ -61,8 +62,10 @@ public class PhoneRegister extends AppCompatActivity {
                     Toast.makeText(PhoneRegister.this, "Enter valid OTP to continue", Toast.LENGTH_SHORT).show();
                 }
                 verifyCode(otp);
-                /*PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationCode, otp);
-                SignInWithCredential(credential);*/
+                */
+/*PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationCode, otp);
+                SignInWithCredential(credential);*//*
+
             }
         });
     }
@@ -152,3 +155,4 @@ public class PhoneRegister extends AppCompatActivity {
         }
     };
 }
+*/
