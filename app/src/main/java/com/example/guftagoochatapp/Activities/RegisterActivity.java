@@ -54,9 +54,9 @@ public class RegisterActivity extends AppCompatActivity {
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
         btn_register = findViewById(R.id.btn_register);
-        phone_register = findViewById(R.id.phone_register);
+        //phone_register = findViewById(R.id.phone_register);
         dummy = findViewById(R.id.dummy);
-        phoneNumber = findViewById(R.id.phoneNumber);
+        //phoneNumber = findViewById(R.id.phoneNumber);
 
         dummy.requestFocus();
         dummy.setFocusableInTouchMode(true);
@@ -80,7 +80,7 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
-        phone_register.setOnClickListener(new View.OnClickListener() {
+        /*phone_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String phonenumber = Objects.requireNonNull(phoneNumber.getEditText()).getText().toString();
@@ -94,7 +94,7 @@ public class RegisterActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
             }
-        });
+        });*/
     }
 
     private void register(final String username, String email, String password){
