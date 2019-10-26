@@ -59,8 +59,8 @@ public class LoginActivity extends AppCompatActivity {
         password = findViewById(R.id.password);
         btn_login = findViewById(R.id.btn_login);
         forget_password = findViewById(R.id.forget_password);
-        btn_phone_login = findViewById(R.id.btn_phone_login);
-        phoneNumber = findViewById(R.id.phoneNumber);
+        /*btn_phone_login = findViewById(R.id.btn_phone_login);
+        phoneNumber = findViewById(R.id.phoneNumber);*/
         otpSent = findViewById(R.id.otpSent);
         dummy = findViewById(R.id.dummy);
 
@@ -101,7 +101,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        btn_phone_login.setOnClickListener(new View.OnClickListener() {
+        /*btn_phone_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String phonenumber = Objects.requireNonNull(phoneNumber.getEditText()).getText().toString();
@@ -111,9 +111,9 @@ public class LoginActivity extends AppCompatActivity {
                 } else{
                     String number = "+91" + phonenumber;
                     sendVerificationCode(number);
-                    /*Intent intent = new Intent(LoginActivity.this, PhoneLogin.class);
+                    *//*Intent intent = new Intent(LoginActivity.this, PhoneLogin.class);
                     intent.putExtra("phonenumber", number);
-                    startActivity(intent);*/
+                    startActivity(intent);*//*
                     otpSent.setVisibility(View.VISIBLE);
                     Objects.requireNonNull(otpSent.getEditText()).setVisibility(View.VISIBLE);
 
@@ -131,7 +131,7 @@ public class LoginActivity extends AppCompatActivity {
                     });
                 }
             }
-        });
+        });*/
     }
 
     private void SignInWithCredential(PhoneAuthCredential credential) {
