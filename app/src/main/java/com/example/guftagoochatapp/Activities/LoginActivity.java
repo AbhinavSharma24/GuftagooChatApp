@@ -100,7 +100,6 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
-
         /*btn_phone_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -153,7 +152,7 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    private void sendVerificationCode(String number){
+    /*private void sendVerificationCode(String number){
         PhoneAuthProvider.getInstance().verifyPhoneNumber(
                 number,
                 60,
@@ -161,7 +160,7 @@ public class LoginActivity extends AppCompatActivity {
                 TaskExecutors.MAIN_THREAD,
                 mCallback
         );
-    }
+    }*/
 
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallback =
             new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
