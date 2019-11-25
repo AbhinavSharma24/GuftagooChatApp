@@ -157,7 +157,7 @@ public class ProfileFragment extends Fragment {
                 }
             });
         } else{
-            Toast.makeText(getContext(), "No image selected", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "No image selected !", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -169,7 +169,7 @@ public class ProfileFragment extends Fragment {
             imageUri = data.getData();
 
             if(uploadTask !=  null && uploadTask.isInProgress()){
-                Toast.makeText(getContext(),"Upload in progress",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(),"Upload in progress...",Toast.LENGTH_SHORT).show();
             } else{
                 uploadImage();
             }

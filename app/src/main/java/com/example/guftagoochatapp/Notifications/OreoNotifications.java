@@ -41,14 +41,13 @@ public class OreoNotifications extends ContextWrapper {
         if(notificationManager == null){
             notificationManager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
         }
-
         return notificationManager;
     }
 
     @TargetApi(Build.VERSION_CODES.O)
     public Notification.Builder getOreoNotification(String title, String body, String icon,
                                                     PendingIntent pendingIntent, Uri soundUri){
-        return new Notification.Builder(getApplicationContext(), CHANNEL_ID)
+        return new Notification.Builder(getApplicationContext(),CHANNEL_ID)
                 .setContentIntent(pendingIntent)
                 .setContentText(body)
                 .setContentTitle(title)
