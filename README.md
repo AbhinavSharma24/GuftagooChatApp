@@ -1,6 +1,6 @@
-Guftagoo is a firebase based Android Chatting Application
+## Guftagoo is a firebase based Android Chatting Application
 
-**Screenshots :-**
+### Screenshots :-
 
 <img src=https://github.com/AbhinavSharma24/GuftagooChatApp/blob/master/Guftagoo%20Screenshots/splash.png height=600px width=350px>
 <img src=https://github.com/AbhinavSharma24/GuftagooChatApp/blob/master/Guftagoo%20Screenshots/signup.png height=600px width=350px>
